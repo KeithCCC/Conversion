@@ -1,17 +1,7 @@
-{% extends "bootstrap/base.html" %} 
-{% import "bootstrap/wtf.html" as wtf %} 
-{% block title %}Global time{% endblock %} 
-
-{% block head %}
-<meta name="viewport" content="width=device-width, initial-scale=1"> 
-
-{% block styles %} 
-{{super()}}
-<link rel="stylesheet" href="{{url_for('.static', filename='mystyle.css')}}"> 
-{% endblock %} 
-{% endblock %} 
-
-{% block content %}
+{% extends "bootstrap/base.html" %} {% import "bootstrap/wtf.html" as wtf %} {% block title %}Global time{% endblock %} {%
+block head %}
+<meta name="viewport" content="width=device-width, initial-scale=1"> {% block styles %} {{super()}}
+<link rel="stylesheet" href="{{url_for('.static', filename='mystyle.css')}}"> {% endblock %} {% endblock %} {% block content %}
 
 <body onload="TodayDate()" style="padding-top: 70px;">
     <nav class="navbar navbar-default navbar-fixed-top">
@@ -24,7 +14,7 @@
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
             </button>
-                <a class="navbar-brand" href="#">Concersion beta</a>
+                <a class="navbar-brand" href="#">Conversion beta</a>
             </div>
             <div id="navbar" class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
@@ -42,11 +32,14 @@
         </div>
 
         <div class="container">
-            </div>
+
+
+            <p id="result">{{result}}</p>
+
+            {{ form.hidden_tag() }} {{ wtf.quick_form(form) }}
+
+
         </div>
-        {{ form.hidden_tag() }}
-        
-        {{ wtf.quick_form(form) }} 
     </div>
     <!-- /container -->
 
